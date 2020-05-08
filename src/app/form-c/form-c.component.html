@@ -1,0 +1,17 @@
+<form Submit=mySubmit()>
+  <div class="form-group">
+    <label for="name">Add card</label>
+    <input type="text" name="name" [(ngModel)]='name' id="email" class="form-control" >
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<br/><br/>
+<div class="container">
+  <div *ngFor="let item form myshop" >
+    <h3>{{item}}</h3>
+  </div>
+  <h3>{{myShop}}</h3>
+</div>
+
+<br/><br/><br/><br/><br/><br/>
