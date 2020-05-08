@@ -10,8 +10,9 @@ name:string="";
 myShop:string[]=['orang', 'apple','tomato','fruit'];
 mySubmit()
 {
+  
   this.myShop.push(this.name);
-  this.name;
+  console.log(this.myShop);
 }
   constructor() { }
 
