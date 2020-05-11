@@ -1,17 +1,146 @@
-<form Submit=mySubmit()>
-  <div class="form-group">
-    <label for="name">Add card</label>
-    <input type="text" name="name"  [(ngModel)]='name' id="name" class="form-control" >
-  </div>
-  
-  <button type="submit" (click)="mySubmit()" class="btn btn-primary">Submit</button>
-</form>
-<br/><br/>
 <div class="container">
-
-  <div *ngFor="let item of myShop" >
-    <h3>{{item}}</h3>
+  <div class="row">
+  
+    <form #fo ="ngForm" novalidate (ngSubmit)=mySubmit(fo)  >
+      <div  class="form-group">
+        <label for="name">first name</label>
+        <input type="text" name="name"  [(ngModel)]='user.name' id="name"  class="form-control" minlength=4 required #MYname="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="Lname">second name</label>
+        <input type="text" name="Lname"  [(ngModel)]='user.Lname' id="Lname"  class="form-control" minlength=4 required #MyLname="ngModel">
+      </div>
+      <div class="form-group">
+        <label for="age">user age</label>
+        <input type="number" name="age"  [(ngModel)]='user.age' id="age"  class="form-control" minlength="2" required #MYage="ngModel">
+      </div>
+      
+      <button type="submit"  class="btn btn-primary" >Submit</button>
+      <div *ngIf="MYname.errors?. required && MyLname.touched" class="alert alert-danger">
+        first name is required
+      </div>
+      <div *ngIf="MyLname.errors?. required && MYage.touched" class="alert alert-danger">
+        first Lname is required
+      </div>
+      <div *ngIf=" MYage.errors?. required && MYage.touched " class="alert alert-danger">
+        first age is required
+      </div>
+      <div *ngIf="MYname.errors?. minlength && MYname.touched" class="alert alert-danger">
+        minlegth is 4 name
+      </div>
+      <div *ngIf="MyLname.errors?. minlength && MyLname.touched" class="alert alert-danger">
+        minlegth is 4 Lname
+      </div>
+      <div *ngIf="MYage.errors?. minlength && MYage.touched" class="alert alert-danger">
+        minlegth is 2 age
+      </div>
+    </form>
+    <br/><br/>
   </div>
+  </div>
+
+
+<div class="container">
+<div>{{verifyObject.reverse()}} </div>
+ <!-- <div *ngFor="let item of myShop" >
+    <h3>{{item}}</h3>
+  </div>-->
     </div>
 
 <br/><br/><br/><br/><br/><br/>
+
+<div class="container">
+  <h3><i class="fa fa-plus" aria-hidden="true"></i> add employee</h3>
+  <div class="container">    
+      <form  #fom="ngForm"  (ngSubmit)=mySubmition(fom) novalidate > 
+    
+        <div class="form-group">
+          <label for="firstname">first name:</label>
+          <input name="firstname" required minlength="4" [(ngModel)]='employee.Firstname' #firstname="ngModel" type="text" class="form-control" id="firstname">
+        </div>
+        <div *ngIf="firstname.errors?.required&& firstname.touched" class="alert alert-danger">
+          first name is required
+        </div> 
+        <div *ngIf="firstname.errors?. minlength && firstname.touched" class="alert alert-danger">
+          minlength of first name is 4
+       </div>  
+        
+        <div class="form-group">
+          <label for="secondname">secondname:</label>
+          <input name="secondname" required minlength="4" [(ngModel)]="employee.secondtname " #secondname="ngModel" type="text" class="form-control" id="secondname">
+        </div>
+        <div *ngIf="secondname.errors?.required&& secondname.touched" class="alert alert-danger">
+          second name is required
+        </div>
+        <div *ngIf="secondname.errors?. minlength && secondname.touched" class="alert alert-danger">
+          minlength of second name is 4
+        </div> 
+       
+       
+        <div class="form-group">
+          <label for="email">Email address:</label>
+          <input name="email" required minlength="4" [(ngModel)]="employee.email" #email="ngModel" type="email" class="form-control" id="email">
+        </div>
+        <div *ngIf="email.errors?.required&& email.touched" class="alert alert-danger">
+          email is required
+        </div>
+        <div *ngIf="email.errors?. minlength && email.touched" class="alert alert-danger">
+          minlength of email is 4
+        </div> 
+       
+       
+        <div class="form-group">
+          <label for="country">country:</label>
+          <input name="country" required minlength="4" [(ngModel)]="employee.country" #country="ngModel" type="text" class="form-control" id="country">
+        </div>
+        <div *ngIf="country.errors?.required&& country.touched" class="alert alert-danger">
+          country is required
+        </div> 
+        <div *ngIf="country.errors?. minlength && country.touched" class="alert alert-danger">
+          minlength of country is 4
+        </div>
+        
+        
+        <div class="form-group">
+          <label for="city">city:</label>
+          <input name="city" required minlength="4" [(ngModel)]="employee.city" #city="ngModel" type="text" class="form-control" id="city">
+        </div>
+        <div *ngIf="city.errors?.required&& city.touched" class="alert alert-danger">
+          city is required
+        </div>  
+        <div *ngIf="city.errors?. minlength && city.touched" class="alert alert-danger">
+          minlength of city is 4
+        </div>
+        
+        
+        <div class="form-group">
+          <label for="phone">phone:</label>
+          <input name="city" required minlength="4" [(ngModel)]="employee.phone" #phone="ngModel" type="text" class="form-control" id="phone">
+        </div>
+        <div *ngIf="phone.errors?. required && phone.touched" class="alert alert-danger">
+          phon is required
+        </div>
+        <div *ngIf="phone.errors?. minlength && phone.touched" class="alert alert-danger">
+          minlength of phon is 4
+        </div>
+        
+        <div class="form-group">
+          <label for="salary">salary:</label>
+          <input name="salary" required minlength="4" [(ngModel)]="employee.salary" #salary="ngModel" type="number" class="form-control" id="salary"
+           [disabled="disableSalary"]>
+        </div>
+        
+      
+      
+      
+      <button type="submit" class="btn btn-success">Submit
+          <i class="fa fa-question-circle" aria-hidden="true"></i></button>
+      </form>
+    
+    </div>
+    </div>
+  
+  
+
+
+<br/><br/><br/><br/>

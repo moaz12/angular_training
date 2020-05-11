@@ -2,10 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import{FormsModule} from '@angular/forms';
+import{FlashMessagesModule} from 'angular2-flash-messages';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormCComponent } from './form-c/form-c.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { FormCComponent } from './form-c/form-c.component';
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    FlashMessagesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
