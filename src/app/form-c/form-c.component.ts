@@ -3,7 +3,7 @@ import { from } from 'rxjs';
 import {employees} from './employees';
 import{FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
-
+import {DataServicesService} from '../services/ITServices.service';
 @Component({
   selector: 'app-form-c',
   templateUrl: './form-c.component.html',
@@ -61,9 +61,15 @@ mySubmition({value,valid}:{value:employees,valid:boolean})
       
 //     }
 
-
-  constructor(public flashMessageService : FlashMessagesService
-    ) {   }
+users:string[];
+  constructor
+  (
+    public flashMessageService : FlashMessagesService,
+    public ITService:DataServicesService
+    ) 
+    {
+     this.users=this.ITService.getUsers();
+    }
 
   ngOnInit(): void
    {

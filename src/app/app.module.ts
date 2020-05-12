@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import{FormsModule} from '@angular/forms';
 import{FlashMessagesModule} from 'angular2-flash-messages';
+import {DataServicesService} from './services/ITServices.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,9 +20,9 @@ import { from } from 'rxjs';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    FlashMessagesModule
+    FlashMessagesModule.forRoot(),
   ],
-  providers: [],
+  providers: [DataServicesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

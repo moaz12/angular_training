@@ -127,7 +127,7 @@
         <div class="form-group">
           <label for="salary">salary:</label>
           <input name="salary" required minlength="4" [(ngModel)]="employee.salary" #salary="ngModel" type="number" class="form-control" id="salary"
-           [disabled="disableSalary"]>
+           [disabled]="disableSalary">
         </div>
         
       
@@ -144,3 +144,8 @@
 
 
 <br/><br/><br/><br/>
+<div class="container">
+<ul>
+  <li *ngFor="let item of users" >{{item}}</li>
+  </ul>
+  </div>
