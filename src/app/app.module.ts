@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import{FormsModule} from '@angular/forms';
-import{FlashMessagesModule} from 'angular2-flash-messages';
+import {FormsModule} from '@angular/forms';
+import {FlashMessagesModule} from 'angular2-flash-messages';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +19,7 @@ import { from } from 'rxjs';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    FlashMessagesModule
+    FlashMessagesModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
