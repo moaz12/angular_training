@@ -4,11 +4,13 @@ import {employees} from './employees';
 import{FlashMessagesService} from 'angular2-flash-messages';
 import {Router} from '@angular/router';
 import {DataServicesService} from '../services/ITServices.service';
+
 @Component({
   selector: 'app-form-c',
   templateUrl: './form-c.component.html',
   styleUrls: ['./form-c.component.css']
 })  
+
 export class FormCComponent implements OnInit {
 verifyObject = [];
   user=
@@ -60,6 +62,7 @@ mySubmition({value,valid}:{value:employees,valid:boolean})
 //     {
       
 //     }
+
 
 users:string[];
   constructor
