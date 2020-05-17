@@ -4,7 +4,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import{FormsModule} from '@angular/forms';
 import{FlashMessagesModule} from 'angular2-flash-messages';
 import {DataServicesService} from './services/ITServices.service';
-//import {HttpModule} from '@angular/http'
+import {HttpClientModule} from '@angular/common/http'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +26,7 @@ import { Page2Component } from './page2/page2.component';
     NgbModule,
     FormsModule,
     FlashMessagesModule.forRoot(),
+    HttpClientModule
   ],
   providers: [DataServicesService],
   bootstrap: [AppComponent]
