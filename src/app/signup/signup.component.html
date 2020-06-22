@@ -1,0 +1,29 @@
+<div class="body">
+    <h2 class="text-center">signup</h2>
+    <form #v= ngForm (ngSubmit)="signup(v)">
+        <input ngModel #name="ngModel"  name="name"  type="text" class="form-control" placeholder="your name" required >
+        <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+            name is required</div>
+        <input ngModel  #email="ngModel" name="email" type="email" class="form-control" placeholder="your email" required>
+        <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+            correct email</div>
+        <input ngModel  #password="ngModel" name="password" type="password" class="form-control" placeholder="your password" required minlength="6">
+        <!--<div class="alert alert-danger"
+         *ngIf="password.errors?.required && password.touched">
+         password is required</div>-->
+        <div class="alert alert-danger"
+         *ngIf="password.errors?.minlength || password.invalid && password.touched">
+         password should be +6 character</div>
+        <input ngModel  #confirmPassword="ngModel" name="confirmPassword" type="password" class="form-control" placeholder="repeat your password" required>
+        <div class="aler alert-danger" 
+        *ngIf="confirmPassword.value !== password.value && confirmPassword.touched">
+        password is not equal</div>
+        <input ngModel  #adress="ngModel"  name="adress" type="text" class="form-control" placeholder="adress" required>
+        <div class="alert alert-danger" *ngIf="adress.invalid && adress.touched">
+            adress is required</div>
+        <button [disabled]="v .invalid || password.value !== confirmPassword.value" class="btn btn-primary"  >creat account</button>
+        </form>
+        <br/><br/>
+        <div class="alert alert-danger" *ngIf ="errorMessage">{{errorMessage}}</div>
+
+</div>
