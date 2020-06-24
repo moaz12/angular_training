@@ -13,31 +13,35 @@
       <div class="collapse navbar-collapse" [class.show]="isOpen" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
          
-         <li class="nav-item ">
+         <li class="nav-item " *ngIf="!isUser">
             <a class="nav-link" routerLink="/" routerLinkActive="active" 
             [routerLinkActiveOptions]="{exact:true}">Home <span class="sr-only">(current)</span></a>
          </li>
           
-         <li class="nav-item">
+         <li class="nav-item" *ngIf="isUser">
               <a class="nav-link" routerLink="/cart" routerLinkActive="active">cart</a>
             </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isUser">
             <a class="nav-link" routerLink="/goods" routerLinkActive="active">goods</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isUser">
             <a class="nav-link" routerLink="/login" routerLinkActive="active" >login</a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isUser">
             <a class="nav-link" routerLink="/signup" routerLinkActive="active" >signup</a>
           </li>
 
-          <li>
-          <button class="btn btn-danger">logout</button>
+          <li class="nav-item" *ngIf="!isUser">
+            <a class="nav-link" routerLink="/forget-password" routerLinkActive="active" >forget-password</a>
+          </li>
+
+          <li *ngIf="isUser">
+          <button class="btn btn-danger" (click)="logOut()" >log out</button>
           </li>
         </ul>
      </div><!-- /.navbar-collapse -->
-    
+    <div *ngIf="errorMessage">{{errorMessage}}</div>
   </nav>

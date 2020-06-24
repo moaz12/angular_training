@@ -12,17 +12,18 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   errorMessage:string;
-  constructor(private as:AuthService,private us:UserService,private router:Router) {
+  constructor(private authService:AuthService,private userService:UserService,private router:Router) {
    
     
    }
    signup(form)
    {
+     
      let data:user =form.value
-     this.as.signup(data.email,data.password)
+     this.authService.signup(data.email,data.password)
      
      .then(result =>{ this.errorMessage =''
-      this.us.addUser(result.user.uid,data.adress,data.name).then(() => {
+      this.userService.addUser(result.user.uid,data.adress,data.name).then(() => {
         this.router.navigate(['/'])
       })
     })

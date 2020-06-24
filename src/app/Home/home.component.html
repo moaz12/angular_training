@@ -6,7 +6,7 @@
                 <div class="card-body">
                   <h5 class="card-title">{{good.name |titlecase}}</h5>
                   <p class="card-text">{{good.price |currency}}</p>
-                  <button class="btn btn-primary" (click)="addToCard()">add to card</button>
+                  <button class="btn btn-primary" (click)="addToCard(good.id)">add to card</button>
                 </div>
               </div>
               

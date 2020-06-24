@@ -9,6 +9,6 @@ export class GoodsService {
   constructor(private fs:AngularFirestore) { }
   getAll()
   {
-    return this.fs.collection('goods').snapshotChanges()
+    return this.fs.collection('goods').snapshotChanges();
   }
 }

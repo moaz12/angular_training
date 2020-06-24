@@ -10,7 +10,7 @@ export class UserService {
   constructor(private SF:AngularFirestore) { }
   addUser(id,name,adress)
   {
-    this.SF.doc('user/'+id).set
-    ({name,adress })
+   return  this.SF.doc('user/'+id).set
+    ({name,adress });
   }
 }

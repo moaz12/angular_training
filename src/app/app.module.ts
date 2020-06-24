@@ -20,7 +20,8 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFirestoreModule} from'@angular/fire/firestore';
-import{AngularFireAuthModule} from '@angular/fire/auth'
+import{AngularFireAuthModule} from '@angular/fire/auth';
+import { ForgetPasswordComponent } from './forget-password/forget-password.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import{AngularFireAuthModule} from '@angular/fire/auth'
     GoodsComponent,
     HomeComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ForgetPasswordComponent
   ],
   imports: [
     BrowserModule,
